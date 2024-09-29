@@ -7,6 +7,9 @@ int main() {
 	sum_ns = t0 - t0;
 	std::chrono::duration< double > s;
 	std::chrono::nanoseconds ns;
+	
+
+
 	for (int i = 0; i <= 100; i++) {
 		t0 = std::chrono::high_resolution_clock::now();
 		std::this_thread::yield();
@@ -17,11 +20,20 @@ int main() {
 		if (i != 0) sum_ns += ns;
 
 	}
-
-
-	std::cout << sum_ns.count() / 100;
+	std::cout << sum_ns.count() / 100 << std::endl;
 	 
-	//std::chrono::nanoseconds d = std::chrono::duration_cast<std::chrono::nanoseconds>(fs);
 	
-	//std::cout << fs.count() << "s\n";
+	sum_ns = t0 - t0;
+	for (int i = 0; i <= 100; i++) {
+		t0 = std::chrono::high_resolution_clock::now();
+		printf("Hello World.\n");
+		t1 = std::chrono::high_resolution_clock::now();
+		s = t1 - t0;
+		ns = std::chrono::duration_cast<std::chrono::nanoseconds>(s);
+
+		if (i != 0) sum_ns += ns;
+	}
+	std::cout << sum_ns.count() / 100;
+
+
 }
